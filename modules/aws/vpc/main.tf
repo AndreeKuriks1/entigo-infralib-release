@@ -48,6 +48,8 @@ module "vpc" {
   enable_dns_hostnames = true
   enable_dns_support   = true
 
+  map_public_ip_on_launch = var.map_public_ip_on_launch
+
   enable_flow_log                                 = false
   create_flow_log_cloudwatch_log_group            = false
   create_flow_log_cloudwatch_iam_role             = false
