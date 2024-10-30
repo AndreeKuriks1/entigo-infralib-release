@@ -1,5 +1,5 @@
 locals {
-  azs = var.public_subnets == null ? var.azs : length(var.private_subnets)
+  azs = var.public_subnets == null ? var.azs : max(length(var.public_subnets), length(var.private_subnets))
 
   #First range
   public_subnets = var.public_subnets == null ? [for i in range(local.azs) : cidrsubnet(cidrsubnet(cidrsubnet(var.vpc_cidr, 2, 0), 1, 0), 2, i)] : var.public_subnets
