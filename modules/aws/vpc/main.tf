@@ -1,5 +1,5 @@
 locals {
-  azs = var.public_subnets == null ? var.azs : length(var.public_subnets)
+  azs = var.public_subnets == null ? var.azs : max(length(var.public_subnets), length(var.private_subnets))
 
   #First range
   public_subnets = var.public_subnets == null ? [for i in range(local.azs) : cidrsubnet(cidrsubnet(cidrsubnet(var.vpc_cidr, 2, 0), 1, 0), 2, i)] : var.public_subnets
@@ -19,7 +19,7 @@ locals {
 #https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "5.8.0"
+  version = "5.8.1"
 
   name = var.prefix
   cidr = var.vpc_cidr
@@ -161,6 +161,7 @@ resource "aws_ssm_parameter" "database_subnet_group" {
     Terraform = "true"
     Prefix    = var.prefix
   }
+  value = ""
 }
 
 resource "aws_ssm_parameter" "elasticache_subnets" {
@@ -183,6 +184,7 @@ resource "aws_ssm_parameter" "elasticache_subnet_group" {
     Terraform = "true"
     Prefix    = var.prefix
   }
+  value = ""
 }
 
 resource "aws_ssm_parameter" "private_subnet_cidrs" {
