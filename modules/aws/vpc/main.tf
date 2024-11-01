@@ -41,7 +41,7 @@ module "vpc" {
   create_elasticache_subnet_group = length(local.elasticache_subnets) > 0 ? true : false
 
   enable_nat_gateway     = var.enable_nat_gateway
-  single_nat_gateway     = var.one_nat_gateway_per_az ? false : true
+  single_nat_gateway     = var.one_nat_gateway_per_az || length(var.public_subnets) > 1 ? false : true
   one_nat_gateway_per_az = var.one_nat_gateway_per_az
 
   reuse_nat_ips        = false
