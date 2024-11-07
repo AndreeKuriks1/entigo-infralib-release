@@ -24,6 +24,8 @@ module "vpc" {
   name = var.prefix
   cidr = var.vpc_cidr
 
+  secondary_cidr_blocks = var.secondary_cidr_blocks
+
   azs                 = [for i in range(local.azs) : data.aws_availability_zones.available.names[i]]
   private_subnets     = local.private_subnets
   public_subnets      = local.public_subnets
@@ -41,7 +43,7 @@ module "vpc" {
   create_elasticache_subnet_group = length(local.elasticache_subnets) > 0 ? true : false
 
   enable_nat_gateway     = var.enable_nat_gateway
-  single_nat_gateway     = var.one_nat_gateway_per_az || length(var.public_subnets) > 1 ? false : true
+  single_nat_gateway     = var.one_nat_gateway_per_az ? false : true
   one_nat_gateway_per_az = var.one_nat_gateway_per_az
 
   reuse_nat_ips        = false
