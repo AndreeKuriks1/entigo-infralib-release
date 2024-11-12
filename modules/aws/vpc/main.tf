@@ -46,7 +46,10 @@ module "vpc" {
   single_nat_gateway     = var.one_nat_gateway_per_az ? false : true
   one_nat_gateway_per_az = var.one_nat_gateway_per_az
 
-  reuse_nat_ips        = false
+  reuse_nat_ips        = var.reuse_nat_ips
+  external_nat_ip_ids        = var.external_nat_ip_ids
+  external_nat_ips        = var.external_nat_ips
+
   enable_dns_hostnames = true
   enable_dns_support   = true
 
