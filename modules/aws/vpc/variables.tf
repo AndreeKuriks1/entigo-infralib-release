@@ -95,21 +95,3 @@ variable "map_public_ip_on_launch" {
   nullable = false
   default  = false
 }
-
-variable "reuse_nat_ips" {
-  type        = bool
-  nullable = false
-  default     = false
-}
-
-variable "external_nat_ip_ids" {
-  type        = list(string)
-  nullable = false
-  default     = []
-}
-
-variable "external_nat_ips" {
-  type        = list(string)
-  nullable = false
-  default     = []
-}
