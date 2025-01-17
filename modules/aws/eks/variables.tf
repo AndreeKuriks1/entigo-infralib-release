@@ -31,6 +31,12 @@ variable "eks_cluster_version" {
   default  = "1.30"
 }
 
+variable "cluster_iam_role_arn" {
+  type     = string
+  nullable = true
+  default  = null
+}
+
 variable "authentication_mode" {
   type     = string
   nullable = false
@@ -348,6 +354,12 @@ variable "node_encryption_kms_key_arn" {
 
 variable "node_ssh_key_pair_name" {
   type = string
+  nullable = true
+  default = null
+}
+
+variable "bootstrap_self_managed_addons" {
+  type    = bool
   nullable = true
   default = null
 }
