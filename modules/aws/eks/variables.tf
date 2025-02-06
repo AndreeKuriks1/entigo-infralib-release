@@ -128,7 +128,6 @@ variable "eks_main_volume_type" {
 
 variable "eks_main_subnets" {
   type    = list(string)
-  default = [""]
 }
 
 variable "eks_mainarm_min_size" {
@@ -176,7 +175,6 @@ variable "eks_mainarm_volume_type" {
 
 variable "eks_mainarm_subnets" {
   type    = list(string)
-  default = [""]
 }
 
 variable "eks_spot_min_size" {
@@ -223,7 +221,6 @@ variable "eks_spot_volume_type" {
 
 variable "eks_spot_subnets" {
   type    = list(string)
-  default = [""]
 }
 
 variable "eks_mon_min_size" {
@@ -271,7 +268,6 @@ variable "eks_mon_volume_type" {
 
 variable "eks_mon_subnets" {
   type    = list(string)
-  default = [""]
 }
 
 variable "eks_tools_min_size" {
@@ -319,7 +315,6 @@ variable "eks_tools_volume_type" {
 
 variable "eks_tools_subnets" {
   type    = list(string)
-  default = [""]
 }
 
 variable "eks_db_min_size" {
@@ -368,7 +363,6 @@ variable "eks_db_volume_type" {
 
 variable "eks_db_subnets" {
   type    = list(string)
-  default = [""]
 }
 
 
