@@ -41,7 +41,6 @@ locals {
       desired_size    = var.eks_mainarm_desired_size != 0 ? var.eks_mainarm_desired_size : var.eks_mainarm_min_size
       max_size        = var.eks_mainarm_max_size
       instance_types  = var.eks_mainarm_instance_types
-      subnet_ids      = var.eks_mainarm_subnets
       capacity_type   = var.eks_mainarm_capacity_type
       key_name         = var.node_ssh_key_pair_name
       release_version = var.eks_cluster_version
@@ -69,7 +68,6 @@ locals {
       desired_size    = var.eks_spot_desired_size != 0 ? var.eks_spot_desired_size : var.eks_spot_min_size
       max_size        = var.eks_spot_max_size
       instance_types  = var.eks_spot_instance_types
-      subnet_ids      = var.eks_spot_subnets
       capacity_type   = "SPOT"
       key_name         = var.node_ssh_key_pair_name
       release_version = var.eks_cluster_version
@@ -183,7 +181,6 @@ locals {
       desired_size    = var.eks_db_desired_size != 0 ? var.eks_db_desired_size : var.eks_db_min_size
       max_size        = var.eks_db_max_size
       instance_types  = var.eks_db_instance_types
-      subnet_ids      = var.eks_db_subnets
       capacity_type   = var.eks_db_capacity_type
       key_name         = var.node_ssh_key_pair_name
       release_version = var.eks_cluster_version

@@ -174,10 +174,6 @@ variable "eks_mainarm_volume_type" {
   default = "gp3"
 }
 
-variable "eks_mainarm_subnets" {
-  type    = list(string)
-}
-
 variable "eks_spot_min_size" {
   type     = number
   nullable = false
@@ -218,10 +214,6 @@ variable "eks_spot_volume_iops" {
 variable "eks_spot_volume_type" {
   type    = string
   default = "gp3"
-}
-
-variable "eks_spot_subnets" {
-  type    = list(string)
 }
 
 variable "eks_mon_min_size" {
@@ -363,11 +355,6 @@ variable "eks_db_volume_type" {
   type    = string
   default = "gp3"
 }
-
-variable "eks_db_subnets" {
-  type    = list(string)
-}
-
 
 variable "cluster_enabled_log_types" {
   type     = list(string)
