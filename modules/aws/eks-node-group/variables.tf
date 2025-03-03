@@ -2,16 +2,6 @@ variable "prefix" {
   type = string
 }
 
-variable "launch_template_id" {
-  type     = string
-  default  = ""
-}
-
-#variable "ssh_key_name" {
-#  type     = string
-#  default  = ""
-#}
-
 variable "key_name" {
   type     = string
   nullable = false
@@ -106,11 +96,6 @@ variable "encryption_kms_key_arn" {
 variable "pre_bootstrap_user_data" {
   type        = string
   default     = ""
-}
-
-variable "remote_access" {
-  type        = any
-  default     = {}
 }
 
 variable "labels" {
