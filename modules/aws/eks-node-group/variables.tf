@@ -2,6 +2,10 @@ variable "prefix" {
   type = string
 }
 
+variable "launch_template_name" {
+  type = string
+}
+
 variable "cluster_name" {
   type     = string
   nullable = false
