@@ -2,8 +2,9 @@ variable "prefix" {
   type = string
 }
 
-variable "launch_template_name" {
-  type = string
+variable "launch_template_use_name_prefix" {
+  type = bool
+  default = true
 }
 
 variable "cluster_name" {

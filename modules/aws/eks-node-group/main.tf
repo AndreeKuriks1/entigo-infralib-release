@@ -7,7 +7,8 @@ module "eks-managed-node-group" {
   iam_role_use_name_prefix = true
   iam_role_name           = substr(var.prefix, 0, 35)
   iam_role_additional_policies = zipmap(compact(var.iam_role_additional_policies), compact(var.iam_role_additional_policies))
-  launch_template_name    = var.launch_template_name != "" ? var.launch_template_name : substr(var.prefix, 0, 35)
+  launch_template_name    = substr(var.prefix, 0, 35)
+  launch_template_use_name_prefix = var.launch_template_use_name_prefix
   cluster_name            = var.cluster_name
   cluster_version         = var.cluster_version
   subnet_ids              = var.subnets
