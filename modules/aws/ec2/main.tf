@@ -72,7 +72,7 @@ resource "aws_instance" "ec2" {
     "Name" = var.prefix
   }
   lifecycle {
-     ignore_changes = [ user_data_base64, ami ]
+     ignore_changes = [ user_data, user_data_base64, ami ]
   }
 }
 
